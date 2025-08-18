@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "SafaLabs",
+  "classifications": [
+    "Web",
+    "API",
+    "Backend",
+    "Clean Architecture",
+    "MongoDB",
+    "Minimal API"
+  ],
+  "name": ".NET Backend Template",
+  "description": "A production-ready .NET backend template with Clean Architecture, MongoDB, and Minimal APIs",
+  "identity": "SafaLabs.Dotnet.Backend.Template",
+  "groupIdentity": "SafaLabs.Dotnet.Backend",
+  "shortName": "dotnet-backend",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Dotnet",
+  "preferNameDirectory": true,
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net9.0",
+          "description": ".NET 9.0"
+        },
+        {
+          "choice": "net8.0", 
+          "description": ".NET 8.0"
+        }
+      ],
+      "defaultValue": "net9.0",
+      "replaces": "net9.0"
+    },
+    "DatabaseProvider": {
+      "type": "parameter",
+      "description": "The database provider to use",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "MongoDB",
+          "description": "MongoDB with generic CRUD operations"
+        },
+        {
+          "choice": "PostgreSQL",
+          "description": "PostgreSQL with Entity Framework Core (coming soon)"
+        },
+        {
+          "choice": "SqlServer",
+          "description": "SQL Server with Entity Framework Core (coming soon)"
+        }
+      ],
+      "defaultValue": "MongoDB"
+    },
+    "UseSwagger": {
+      "type": "parameter",
+      "description": "Include Swagger/OpenAPI documentation",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "IncludeTests": {
+      "type": "parameter", 
+      "description": "Include test projects",
+      "datatype": "bool",
+      "defaultValue": "false"
+    },
+    "Port": {
+      "type": "parameter",
+      "description": "Port number for the API",
+      "datatype": "integer",
+      "defaultValue": "5087"
+    },
+    "DatabaseName": {
+      "type": "parameter",
+      "description": "Default database name",
+      "datatype": "string",
+      "defaultValue": "MyAppDb",
+      "replaces": "DotnetTemplateDb"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!IncludeTests)",
+          "exclude": [
+            "**/*Tests/**",
+            "**/*.Tests.*/**"
+          ]
+        },
+        {
+          "condition": "(DatabaseProvider != 'MongoDB')",
+          "exclude": [
+            "Dotnet.Infrastructure/Services/MongoService.cs",
+            "Dotnet.Infrastructure/Configuration/MongoDbSettings.cs",
+            "MongoDB-README.md"
+          ]
+        }
+      ]
+    }
+  ],
+  "postActions": [
+    {
+      "condition": "(OS != \"Windows_NT\")",
+      "description": "Make scripts executable",
+      "manualInstructions": [
+        {
+          "text": "Run 'chmod +x *.sh'"
+        }
+      ],
+      "actionId": "cb9a6cf3-4f5c-4860-b9d2-03a574959774",
+      "args": {
+        "+x": "*.sh"
+      },
+      "continueOnError": true
+    }
+  ]
+}
