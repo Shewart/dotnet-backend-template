@@ -5,7 +5,7 @@
 ### Method 1: Local Installation (Development)
 ```bash
 # Clone the repository
-git clone https://github.com/safalabs/dotnet-backend-template.git
+git clone https://github.com/shewart/dotnet-backend-template.git
 cd dotnet-backend-template
 
 # Install locally (Windows)
@@ -18,7 +18,7 @@ cd dotnet-backend-template
 ### Method 2: NuGet Package (Coming Soon)
 ```bash
 # Install from NuGet Gallery
-dotnet new install SafaLabs.Dotnet.Backend.Template
+dotnet new install Dotnet.Backend.Template
 
 # Create new project
 dotnet new dotnet-backend -n MyAwesomeAPI
@@ -120,7 +120,7 @@ GET http://localhost:5087/api/products
 ### Template Installation Issues
 ```bash
 # Uninstall existing template
-dotnet new uninstall SafaLabs.Dotnet.Backend.Template
+dotnet new uninstall Dotnet.Backend.Template
 
 # Reinstall
 dotnet new install path/to/template
@@ -143,7 +143,7 @@ netstat -an | findstr 5087
 
 1. **Read the documentation**: [README.md](README.md)
 2. **Database-specific guides**: [MongoDB README](MongoDB-README.md)
-3. **Join discussions**: [GitHub Discussions](https://github.com/safalabs/dotnet-backend-template/discussions)
+3. **Join discussions**: [GitHub Discussions](https://github.com/shewart/dotnet-backend-template/discussions)
 4. **Contribute**: See [Contributing Guidelines](README.md#-contributing)
 
 ---

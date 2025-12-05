@@ -12,7 +12,7 @@ A modern, scalable .NET backend template that gets you from zero to production-r
 
 🏗️ **Clean Architecture** - Proper separation of concerns across layers  
 ⚡ **Minimal APIs** - Lightweight, fast HTTP endpoints  
-🗃️ **Database Agnostic** - Generic repository pattern supports multiple databases  
+🗃️ **Multi-Database** - MongoDB and PostgreSQL with EF Core support  
 📦 **Template Package** - Install via `dotnet new`  
 🔧 **Easy Extension** - Add new entities in minutes  
 🧪 **Fully Testable** - Interface-based design for easy mocking  
@@ -35,7 +35,7 @@ cd MyAwesomeAPI
 
 **Option 2: Clone & install locally**
 ```bash
-git clone https://github.com/safalabs/dotnet-backend-template.git
+git clone https://github.com/shewart/dotnet-backend-template.git
 cd dotnet-backend-template
 
 # Windows (PowerShell/CMD)
@@ -103,7 +103,7 @@ This template supports multiple databases through a generic service pattern:
 | Database | Status | Guide |
 |----------|--------|-------|
 | **MongoDB** | ✅ Ready | [MongoDB Setup](MongoDB-README.md) |
-| **PostgreSQL** | 🚧 Coming Soon | [PostgreSQL Setup](PostgreSQL-README.md) |
+| **PostgreSQL** | ✅ Ready | [PostgreSQL Setup](PostgreSQL-README.md) |
 | **SQL Server** | 🚧 Coming Soon | [SQL Server Setup](SqlServer-README.md) |
 | **SQLite** | 🚧 Planned | [SQLite Setup](SQLite-README.md) |
 
@@ -207,17 +207,18 @@ az webapp create --resource-group myRG --plan myPlan --name my-api
 
 ## 🛣️ Roadmap
 
-### 🎯 Current Version (v1.0)
+### 🎯 Current Version (v1.1)
 - ✅ MongoDB support with generic CRUD
+- ✅ PostgreSQL support with Entity Framework Core
 - ✅ Minimal APIs with full CRUD operations
 - ✅ Clean Architecture foundation
 - ✅ OpenAPI/Swagger documentation
 - ✅ Template installation system
+- ✅ CQRS-ready service pattern
 
 ### 🚀 Upcoming Features
 
-**v1.1 - Multi-Database Universe** 🗃️
-- **PostgreSQL Provider** - Full Entity Framework Core integration
+**v1.2 - Multi-Database Universe** 🗃️
 - **SQL Server Provider** - Enterprise-ready with advanced features
 - **SQLite Provider** - Lightweight option for development/testing
 - **Cosmos DB Provider** - Azure cloud-native database support
@@ -290,7 +291,7 @@ We welcome contributions! Here's how to get started:
 
 ### 💬 Join the Discussion
 
-Have questions or ideas? Join our [GitHub Discussions](https://github.com/safalabs/dotnet-backend-template/discussions)!
+Have questions or ideas? Join our [GitHub Discussions](https://github.com/shewart/dotnet-backend-template/discussions)!
 
 ## 📄 License
 
@@ -298,7 +299,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Built with ❤️ by the [SafaLabs](https://github.com/safalabs) team
+- Built with ❤️ by [shewart](https://github.com/shewart)
 - Inspired by Clean Architecture principles
 - Community-driven development
 

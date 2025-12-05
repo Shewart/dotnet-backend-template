@@ -37,7 +37,7 @@ This is a **production-ready .NET backend template** featuring:
 
 ```bash
 # Clone the template
-git clone https://github.com/yourusername/dotnet-backend-template
+git clone https://github.com/shewart/dotnet-backend-template
 cd dotnet-backend-template
 
 # Run the API

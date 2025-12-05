@@ -1,6 +1,6 @@
 namespace Dotnet.Application.Interfaces;
 
-public interface IMongoService<T>
+public interface IService<T>
 {
     Task<List<T>> GetAllAsync();
     Task<T?> GetByIdAsync(string id);
@@ -10,3 +10,5 @@ public interface IMongoService<T>
     Task<long> GetCountAsync();
     Task<List<T>> GetPagedAsync(int page, int pageSize);
 }
+
+public interface IMongoService<T> : IService<T> { }
