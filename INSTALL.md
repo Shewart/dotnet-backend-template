@@ -29,7 +29,7 @@ chmod +x install-template.sh
 ### Method 3: Manual step-by-step
 ```bash
 # 1. Clone template
-git clone https://github.com/safalabs/dotnet-backend-template.git
+git clone https://github.com/shewart/dotnet-backend-template.git
 cd dotnet-backend-template
 
 # 2. Install template
@@ -63,7 +63,7 @@ dotnet run --project TestAPI.Api
 ### Template already exists
 ```bash
 # Uninstall existing
-dotnet new uninstall SafaLabs.Dotnet.Backend.Template
+dotnet new uninstall Dotnet.Backend.Template
 
 # Reinstall
 dotnet new install . --force
