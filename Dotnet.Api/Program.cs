@@ -1,8 +1,11 @@
+using Dotnet.Api.DTOs;
+using Dotnet.Api.Validators;
 using Dotnet.Application.Interfaces;
 using Dotnet.Core.Entities;
 using Dotnet.Infrastructure.Configuration;
 using Dotnet.Infrastructure.Services;
 using Dotnet.Infrastructure.PostgreSQL;
+using FluentValidation.AspNetCore;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Add FluentValidation
+builder.Services.AddFluentValidationAutoValidation();
 
 // Get database provider from configuration (default to MongoDB)
 var databaseProvider = builder.Configuration.GetValue<string>("DatabaseProvider") ?? "MongoDB";
@@ -80,8 +86,17 @@ productsApi.MapGet("/{id}", async (IService<Product> service, string id) =>
 .WithSummary("Get product by ID");
 
 // POST /api/products - Create new product
-productsApi.MapPost("/", async (IService<Product> service, Product product) =>
+productsApi.MapPost("/", async (IService<Product> service, CreateProductRequest request) =>
 {
+    var product = new Product
+    {
+        Name = request.Name,
+        Description = request.Description,
+        Price = request.Price,
+        Category = request.Category,
+        InStock = request.InStock
+    };
+
     var createdProduct = await service.CreateAsync(product);
     return Results.Created($"/api/products/{createdProduct.Id}", createdProduct);
 })
@@ -89,8 +104,17 @@ productsApi.MapPost("/", async (IService<Product> service, Product product) =>
 .WithSummary("Create a new product");
 
 // PUT /api/products/{id} - Update product
-productsApi.MapPut("/{id}", async (IService<Product> service, string id, Product product) =>
+productsApi.MapPut("/{id}", async (IService<Product> service, string id, UpdateProductRequest request) =>
 {
+    var product = new Product
+    {
+        Name = request.Name,
+        Description = request.Description,
+        Price = request.Price,
+        Category = request.Category,
+        InStock = request.InStock
+    };
+
     var updatedProduct = await service.UpdateAsync(id, product);
     return updatedProduct is not null ? Results.Ok(updatedProduct) : Results.NotFound();
 })

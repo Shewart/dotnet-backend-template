@@ -136,6 +136,49 @@ curl -X POST http://localhost:5087/api/products \\
   }'
 ```
 
+**Validation Example:**
+```bash
+# This will return validation errors:
+curl -X POST http://localhost:5087/api/products \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "name": "",
+    "price": -100,
+    "category": "InvalidCategory"
+  }'
+```
+
+## ✅ Input Validation
+
+The template includes comprehensive input validation using FluentValidation:
+
+### Validation Features
+- **Request DTOs** - Separate DTOs for create/update operations
+- **Business Rules** - Custom validation logic for domain constraints
+- **Automatic Validation** - Integrated with ASP.NET Core model binding
+- **Detailed Error Messages** - Clear feedback for invalid inputs
+
+### Validation Rules
+- Product names: 2-100 characters, required
+- Prices: Must be > 0 and ≤ $1,000,000
+- Categories: Must be from predefined list (Electronics, Books, Clothing, Home, Sports, Automotive)
+- Descriptions: Max 500 characters
+- Electronics products: Cannot contain restricted keywords
+
+### Example Validation Error Response
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Name": ["Product name must be between 2 and 100 characters"],
+    "Price": ["Price must be greater than 0"],
+    "Category": ["Category must be one of: Electronics, Books, Clothing, Home, Sports, Automotive"]
+  }
+}
+```
+
 ## 🔧 Adding New Entities
 
 The template makes it incredibly easy to add new entities:
@@ -210,6 +253,8 @@ az webapp create --resource-group myRG --plan myPlan --name my-api
 ### 🎯 Current Version (v1.1)
 - ✅ MongoDB support with generic CRUD
 - ✅ PostgreSQL support with Entity Framework Core
+- ✅ FluentValidation input validation
+- ✅ Request/Response DTOs
 - ✅ Minimal APIs with full CRUD operations
 - ✅ Clean Architecture foundation
 - ✅ OpenAPI/Swagger documentation
