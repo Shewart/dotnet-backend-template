@@ -8,7 +8,7 @@
     <owners>dotnet-backend-template</owners>
     <description>A production-ready .NET backend template with Clean Architecture, MongoDB/PostgreSQL support, and Minimal APIs. Get from zero to production-ready API in minutes with proper layering, generic CRUD operations, and extensible design.</description>
     <summary>Clean Architecture .NET backend template with MongoDB/PostgreSQL and Minimal APIs</summary>
-    <releaseNotes>Added PostgreSQL support with Entity Framework Core. Enhanced template with multiple database provider options.</releaseNotes>
+    <releaseNotes>v1.1.0: Added PostgreSQL support with Entity Framework Core and comprehensive input validation using FluentValidation.</releaseNotes>
     <copyright>Copyright © 2025</copyright>
     <language>en-US</language>
     <tags>dotnet template web api backend mongodb postgresql entity-framework clean-architecture minimal-api csharp</tags>

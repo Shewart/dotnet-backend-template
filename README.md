@@ -23,29 +23,31 @@ A modern, scalable .NET backend template that gets you from zero to production-r
 
 ### 📦 Installation
 
-**Option 1: Install as dotnet template (Recommended)**
-```bash
-# Install the template globally
-dotnet new install Dotnet.Backend.Template
-
-# Create new project from template
-dotnet new dotnet-backend -n MyAwesomeAPI
-cd MyAwesomeAPI
-```
-
-**Option 2: Clone & install locally**
+**Clone the repository:**
 ```bash
 git clone https://github.com/shewart/dotnet-backend-template.git
 cd dotnet-backend-template
+```
 
+**Install the template locally:**
+```bash
 # Windows (PowerShell/CMD)
 ./install-template.ps1
 
 # Linux/Mac/Git Bash
 ./install-template.sh
+```
 
-# Then create your project
-dotnet new dotnet-backend -n MyAwesomeAPI
+**Create your project:**
+```bash
+# MongoDB (default)
+dotnet new dotnet-backend -n MyApi
+
+# PostgreSQL
+dotnet new dotnet-backend -n MyApi --DatabaseProvider PostgreSQL
+
+cd MyApi
+dotnet run --project MyApi.Api
 ```
 
 ### ⚙️ Quick Setup

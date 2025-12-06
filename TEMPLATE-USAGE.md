@@ -2,26 +2,20 @@
 
 ## 🚀 Installation Methods
 
-### Method 1: Local Installation (Development)
+### Installation Steps
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/shewart/dotnet-backend-template.git
 cd dotnet-backend-template
 
-# Install locally (Windows)
+# 2. Install locally (Windows)
 ./install-template.ps1
 
-# Install locally (Linux/Mac)  
+# 2. Install locally (Linux/Mac)
 ./install-template.sh
-```
 
-### Method 2: NuGet Package (Coming Soon)
-```bash
-# Install from NuGet Gallery
-dotnet new install Dotnet.Backend.Template
-
-# Create new project
-dotnet new dotnet-backend -n MyAwesomeAPI
+# 3. Create your project
+dotnet new dotnet-backend -n MyApi
 ```
 
 ## 🎯 Creating Projects
